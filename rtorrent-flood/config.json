@@ -10,8 +10,21 @@
   "boot": "auto",
   "hassio_api": true,
   "hassio_role": "default",
+  "map": ["config:rw", "share:rw", "ssl"],
   "options": {
     "log_level": "info"
+  },
+  "ports": {
+    "3000/tcp": 3000,
+    "5000/tcp": null,
+    "49184/tcp": 49184,
+    "49184/udp": 49184
+  },
+  "ports_description": {
+    "3000/tcp": "Flood UI interface",
+    "5000/tcp": "rTorrent SCGI (if null, use socket)",
+    "49184/tcp": "rTorrent peers",
+    "49184/udp": "rTorrent UDP peers"
   },
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)"

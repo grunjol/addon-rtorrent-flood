@@ -3,4 +3,5 @@
 # Flood
 # ==============================================================================
 bashio::log.info "Starting Flood UI..."
+
 exec /usr/bin/flood.sh

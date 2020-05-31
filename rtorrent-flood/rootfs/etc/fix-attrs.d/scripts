@@ -1,2 +1,4 @@
 /usr/bin/rtorrent.sh false root 0755 0755
 /usr/bin/flood.sh false root 0755 0755
+/usr/bin/rtuntar.sh false root 0755 0755
+/usr/local/bin true root 0755 0755

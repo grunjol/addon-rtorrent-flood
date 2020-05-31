@@ -3,11 +3,10 @@
 # rTorrent add-on for Hass.io.
 # ------------------------------------------------------------------------------
 main() {
-    bashio::log.trace "${FUNCNAME[0]}"
-
-    while true; do
-        echo "Checking rTorrent"
-        sleep 60
-    done
+	export TERM="xterm"
+	export HOME="/home/torrent"
+	export PWD="/home/torrent"
+	cd /home/torrent
+	exec rtorrent
 }
 main "$@"
