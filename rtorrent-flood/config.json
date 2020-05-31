@@ -1,0 +1,19 @@
+{
+  "name": "rTorrent + Flood",
+  "version": "dev",
+  "slug": "rtorrent-flood",
+  "description": "rTorrent and Flood web UI add-on for Hass.io",
+  "url": "https://github.com/grunjol/addon-rtorrent-flood",
+  "startup": "application",
+  "init": false,
+  "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
+  "boot": "auto",
+  "hassio_api": true,
+  "hassio_role": "default",
+  "options": {
+    "log_level": "info"
+  },
+  "schema": {
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)"
+  }
+}
