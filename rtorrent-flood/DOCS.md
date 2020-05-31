@@ -8,8 +8,8 @@ Flood is a monitoring service for rTorrent. It's a Node.js service that communic
 ## Installation
 
 1. Add grunjol repository https://github.com/grunjol/hassio-repository
-1. Search for the "rTorrent + Flood" add-on in the Supervisor add-on store and install it.
-1. Start the "rTorrent + Flood" add-on.
+1. Search for the "rTorrent and Flood" add-on in the Supervisor add-on store and install it.
+1. Start the "rTorrent and Flood" add-on.
 1. Configure it
 
 ## Configuration

@@ -3,10 +3,6 @@
 # rTorrent add-on for Hass.io.
 # ------------------------------------------------------------------------------
 main() {
-	export TERM="xterm"
-	export HOME="/home/torrent"
-	export PWD="/home/torrent"
-	cd /home/torrent
-	exec rtorrent
+	exec rtorrent -n -o import=/etc/rtorrent.d/rtorrent.rc
 }
 main "$@"

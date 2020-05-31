@@ -1,5 +1,7 @@
 scgi_local = /tmp/rtorrent.sock
 
+system.daemon.set = true
+
 encoding_list = UTF-8
 port_range = 49184-49184
 port_random = no

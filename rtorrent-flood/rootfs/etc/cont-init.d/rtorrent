@@ -10,5 +10,5 @@ declare scgi
 scgi=$(bashio::addon.port 5000)
 
 if bashio::var.has_value "${scgi}"; then
-    sed -i -e 's|^scgi_local.*$|scgi_port = 0.0.0.0:5000|' /home/torrent/.rtorrent.rc
+    sed -i -e 's|^scgi_local.*$|scgi_port = 0.0.0.0:5|' /etc/rtorrent.d/rtorrent.rc
 fi

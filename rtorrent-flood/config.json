@@ -1,6 +1,6 @@
 {
-  "name": "rTorrent + Flood",
-  "version": "dev",
+  "name": "rTorrent and Flood",
+  "version": "0.1.1",
   "slug": "rtorrent-flood",
   "description": "rTorrent and Flood web UI add-on for Hass.io",
   "url": "https://github.com/grunjol/addon-rtorrent-flood",
@@ -28,5 +28,6 @@
   },
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)"
-  }
+  },
+  "webui" : "http://[HOST]:[PORT:3000]/"
 }
