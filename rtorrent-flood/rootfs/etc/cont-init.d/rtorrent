@@ -1,11 +1,9 @@
 #!/usr/bin/with-contenv bashio
 
+bashio::log.info "Checking directories..."
+
 mkdir -p /media/Downloads/Incomplete
 mkdir -p /media/Downloads/Incoming
 mkdir -p /share/rtorrent/.session
 
 rm -f /share/rtorrent/.session/rtorrent.lock
-
-chmod +x /usr/bin/rtorrent.sh
-chmod +x /usr/bin/flood.sh
-chmod +x /usr/bin/rtunrar.sh
