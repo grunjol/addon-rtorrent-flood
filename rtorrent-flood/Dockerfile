@@ -9,17 +9,19 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG FLOOD_VER=v4.8.2
 
-RUN apk -U upgrade \
- && apk add \
+RUN apk --no-cache add \
+    bash \
+    bazel \
+    build-base \
+    coreutils \
+    gcompat \
+    git \
+    linux-headers \
+    pythonispython3 \
+    python3 \
+    binutils \
     ca-certificates \
-    curl \
-    ncurses \
-    openssl \
-    gzip \
-    zip \
-    zlib \
-    python \
-    unrar \
+    ncurses-terminfo-base \
     findutils \
     mktorrent \
     mediainfo \
