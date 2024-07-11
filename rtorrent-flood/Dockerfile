@@ -23,8 +23,10 @@ RUN apk --no-cache add \
     mktorrent \
     mediainfo \
     rtorrent \
+    curl \
  && mkdir -p /usr/flood && cd /usr/flood \
- && wget https://github.com/jesec/flood/releases/download/${FLOOD_VER}/flood-linux-x64 -o flood \
+ && curl -o flood https://github.com/jesec/flood/releases/download/${FLOOD_VER}/flood-linux-x64 \
+ && chmod 0755 flood \
  && rm -rf /var/cache/apk/* /tmp/*
 
 COPY rootfs /
