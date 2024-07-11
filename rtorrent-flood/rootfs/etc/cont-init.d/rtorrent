@@ -1,14 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
-mkdir -p /share/torrents
-mkdir -p /share/.watch
-mkdir -p /data/.session
+mkdir -p /media/Downloads/Incomplete
+mkdir -p /media/Downloads/Incoming
+mkdir -p /share/rtorrent/.session
 
-rm -f /data/.session/rtorrent.lock
-
-declare scgi
-scgi=$(bashio::addon.port 5000)
-
-if bashio::var.has_value "${scgi}"; then
-    sed -i -e 's|^scgi_local.*$|scgi_port = 0.0.0.0:5|' /etc/rtorrent.d/rtorrent.rc
-fi
+rm -f /share/rtorrent/.session/rtorrent.lock

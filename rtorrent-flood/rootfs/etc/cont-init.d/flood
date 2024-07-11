@@ -1,8 +1,0 @@
-#!/usr/bin/with-contenv bashio
-
-declare scgi
-scgi=$(bashio::addon.port 5000)
-
-if bashio::var.has_value "${scgi}"; then
-    sed -i -e 's|socket: true,|socket: false,|' /usr/flood/config.js
-fi

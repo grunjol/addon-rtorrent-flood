@@ -6,6 +6,6 @@ main() {
     bashio::log.trace "${FUNCNAME[0]}"
 
     cd /usr/flood
-	exec npm start
+	exec flood
 }
 main "$@"

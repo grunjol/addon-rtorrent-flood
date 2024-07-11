@@ -1,34 +1,15 @@
-ARG BUILD_FROM=hassioaddons/base:7.2.0
+ARG BUILD_FROM
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
+# Add env
+ENV LANG C.UTF-8
 
-ARG FLOOD_VER=master
-ARG BUILD_CORES
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV FLOOD_SECRET=supersecret \
-    WEBROOT=/ \
-    PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-    
-COPY rootfs /
+ARG FLOOD_VER=v4.8.2
 
-RUN NB_CORES=${BUILD_CORES-`getconf _NPROCESSORS_CONF`} \
- && apk -U upgrade \
- && apk add -t build-dependencies \
-    build-base \
-    git \
-    libtool \
-    automake \
-    autoconf \
-    wget \
-    tar \
-    xz \
-    zlib-dev \
-    cppunit-dev \
-    openssl-dev \
-    ncurses-dev \
-    curl-dev \
-    binutils \
-    linux-headers \
+RUN apk -U upgrade \
  && apk add \
     ca-certificates \
     curl \
@@ -38,17 +19,16 @@ RUN NB_CORES=${BUILD_CORES-`getconf _NPROCESSORS_CONF`} \
     zip \
     zlib \
     python \
-    nodejs \
-    nodejs-npm \
     unrar \
     findutils \
     mktorrent \
     mediainfo \
     rtorrent \
- && mkdir -p /usr/flood && cd /usr/flood && wget -qO- https://github.com/Flood-UI/flood/archive/${FLOOD_VER}.tar.gz | tar xz --strip 1 \
- && JOBS=`getconf _NPROCESSORS_CONF` npm install --loglevel verbose && npm cache clean --force && npm run build \
- && apk del build-dependencies \
+ && mkdir -p /usr/flood && cd /usr/flood \
+ && wget https://github.com/jesec/flood/releases/download/${FLOOD_VER}/flood-linux-x64 -o flood \
  && rm -rf /var/cache/apk/* /tmp/*
+
+COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH
