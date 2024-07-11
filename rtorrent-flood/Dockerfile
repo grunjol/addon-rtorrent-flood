@@ -33,7 +33,6 @@ RUN chmod 0755 /usr/bin/rtorrent.sh
 RUN chmod 0755 /usr/bin/flood.sh
 RUN chmod 0755 /usr/bin/rtunrar.sh
 
-
 # Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
