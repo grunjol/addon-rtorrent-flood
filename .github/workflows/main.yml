@@ -20,7 +20,7 @@ jobs:
         uses: home-assistant/builder@master
         with:
           args: |
-            --all \
+            --amd64 \
             --target rtorrent-flood \
             --docker-hub grunjol \
             --image rtorrent-flood-{arch}
