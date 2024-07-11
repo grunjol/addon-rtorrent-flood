@@ -5,3 +5,7 @@ mkdir -p /media/Downloads/Incoming
 mkdir -p /share/rtorrent/.session
 
 rm -f /share/rtorrent/.session/rtorrent.lock
+
+chmod +x /usr/bin/rtorrent.sh
+chmod +x /usr/bin/flood.sh
+chmod +x /usr/bin/rtunrar.sh

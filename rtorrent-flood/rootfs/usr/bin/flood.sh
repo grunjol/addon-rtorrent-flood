@@ -4,8 +4,7 @@
 # ------------------------------------------------------------------------------
 main() {
     bashio::log.trace "${FUNCNAME[0]}"
-
     cd /usr/flood
-	exec flood
+  	exec flood
 }
 main "$@"
