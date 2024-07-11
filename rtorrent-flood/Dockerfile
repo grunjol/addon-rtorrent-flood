@@ -11,12 +11,9 @@ ARG FLOOD_VER=v4.8.2
 
 RUN apk --no-cache add \
     bash \
-    bazel \
-    build-base \
     coreutils \
     gcompat \
     git \
-    linux-headers \
     pythonispython3 \
     python3 \
     binutils \
