@@ -7,7 +7,7 @@ ENV LANG C.UTF-8
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG FLOOD_VER=v4.8.2
+ARG FLOOD_VER=v4.9.3
 
 RUN apk --no-cache add \
     bash \
