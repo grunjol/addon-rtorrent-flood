@@ -1,0 +1,9 @@
+configuration:
+  download_dir:
+    name: Carpeta de descargas
+  max_upload_speed:
+    name: Velocidad de subida (kbps)
+  max_download_speed:
+    name: Velocidad de descarga (kbps)
+  log_level:
+    name: Nivel de registro

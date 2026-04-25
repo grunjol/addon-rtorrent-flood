@@ -2,8 +2,15 @@
 
 bashio::log.info "Checking directories..."
 
-mkdir -p /media/Downloads/Incomplete
-mkdir -p /media/Downloads/Incoming
-mkdir -p /share/rtorrent/.session
+DOWNLOAD_DIR=$(bashio::config 'download_dir')
+
+mkdir -p "${DOWNLOAD_DIR}/Incomplete"
+mkdir -p "${DOWNLOAD_DIR}/Incoming"
+mkdir -p "${DOWNLOAD_DIR}/.session"
 
 rm -f /share/rtorrent/.session/rtorrent.lock
+
+tempio \
+      -conf /data/options.json \
+      -template /etc/rtorrent.d/templates/rtorrent.rc.gtpl \
+      -out /etc/rtorrent.d/rtorrent.rc

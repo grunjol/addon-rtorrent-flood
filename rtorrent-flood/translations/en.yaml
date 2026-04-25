@@ -1,0 +1,9 @@
+configuration:
+  download_dir:
+    name: Download directory
+  max_upload_speed:
+    name: Max upload speed (kbps)
+  max_download_speed:
+    name: Max download speed (kbps)
+  log_level:
+    name: Log level

@@ -42,9 +42,31 @@ more severe level, e.g., `debug` also shows `info` messages. By default,
 the `log_level` is set to `info`, which is the recommended setting unless
 you are troubleshooting.
 
-### Option: `path`
+### Option: `download_dir`
 
-Path
+The directory where rtorrent will store the Incomplete and Complete downloads 
+```yaml
+"download_dir": "/media/Downloads",
+```
+
+### Option: `max_upload_speed`
+
+The maximum global upload bandwidth rtorrent will use.
+Left 0 to unlimited 
+
+```yaml
+"max_upload_speed": 0
+```
+
+### Option: `max_download_speed`
+
+The maximum global download bandwidth rtorrent will use.
+Left 0 to unlimited
+
+```yaml
+"max_download_speed": 0
+```
+
 
 ## Changelog & Releases
 
