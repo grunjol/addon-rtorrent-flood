@@ -34,6 +34,11 @@ schedule = insufficient_disk_space,1,30,close_low_diskspace=500M
 method.set_key=event.download.inserted_new,loaded_time,"d.custom.set=addtime,$cat=$system.time=;d.save_full_session="
 
 # upon completion, move content to path specified above via custom1
+method.redirect=load.throw,load.normal
+method.redirect=load.start_throw,load.start
+method.insert=d.down.sequential,value|const,0
+method.insert=d.down.sequential.set,value|const,0
 method.insert = d.data_path, simple, "if=(d.is_multi_file), (cat,(d.directory),/), (cat,(d.directory),/,(d.name))"
 method.insert = d.move_to_complete, simple, "d.directory.set=$argument.1=; execute=mkdir,-p,$argument.1=; execute=mv,-u,$argument.0=,$argument.1=; d.save_full_session="
 method.set_key = event.download.finished,move_complete,"d.move_to_complete=$d.data_path=,{{ .download_dir }}"
+
