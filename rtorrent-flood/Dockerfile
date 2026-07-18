@@ -1,14 +1,11 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:20.1.0
+FROM ghcr.io/home-assistant/base:latest
 
-# hadolint ignore=DL3006
-FROM ${BUILD_FROM}
-# Add env
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
-# Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG FLOOD_VER=v4.13.9
+ARG FLOOD_VER=v4.15.0
+ARG TARGETARCH
 
 RUN apk --no-cache add \
     bash \
@@ -25,8 +22,13 @@ RUN apk --no-cache add \
     mediainfo \
     rtorrent \
  && mkdir -p /usr/flood && cd /usr/flood \
- && wget https://github.com/jesec/flood/releases/download/${FLOOD_VER}/flood-linux-x64 \
- && mv flood-linux-x64 flood \
+ && case "${TARGETARCH}" in \
+        amd64) flood_arch="x64" ;; \
+        arm64) flood_arch="arm64" ;; \
+        *) echo "Unsupported TARGETARCH: ${TARGETARCH}" && exit 1 ;; \
+    esac \
+ && wget "https://github.com/jesec/flood/releases/download/${FLOOD_VER}/flood-linux-${flood_arch}" \
+ && mv "flood-linux-${flood_arch}" flood \
  && chmod 0755 flood \
  && rm -rf /var/cache/apk/* /tmp/*
 
@@ -36,7 +38,6 @@ RUN chmod 0755 /usr/bin/rtorrent.sh
 RUN chmod 0755 /usr/bin/flood.sh
 RUN chmod 0755 /usr/bin/rtunrar.sh
 
-# Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
 ARG BUILD_REF
@@ -45,12 +46,11 @@ ARG BUILD_DESCRIPTION
 ARG BUILD_NAME
 ARG BUILD_REPOSITORY
 
-# Labels
 LABEL \
     io.hass.name="${BUILD_NAME}" \
     io.hass.description="${BUILD_DESCRIPTION}" \
     io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
+    io.hass.type="app" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="grunjol <grunjol@gmail.com>" \
     org.opencontainers.image.title="${BUILD_NAME}" \

@@ -8,7 +8,7 @@ mkdir -p "${DOWNLOAD_DIR}/Incomplete"
 mkdir -p "${DOWNLOAD_DIR}/Incoming"
 mkdir -p "${DOWNLOAD_DIR}/.session"
 
-rm -f /share/rtorrent/.session/rtorrent.lock
+rm -f "${DOWNLOAD_DIR}/.session/rtorrent.lock"
 
 tempio \
       -conf /data/options.json \
